@@ -46,15 +46,16 @@ const Ejs = require("./gulp/ejs");
 ## 3. task定義
 
 ```
-gulp.task('ejs', () => {
+gulp.task('ejs', (done) => {
     Ejs(SETTING);
+    done();
 });
 
 gulp.task('watch', () => {
 
     SETTING.ejs.forEach( function(e,i,entryPoint) {
 
-        gulp.watch(SETTING.ejs[i].target, ['ejs']);
+        gulp.watch(SETTING.['[i].target, gulp.task("['"));
 
     });
 
@@ -65,9 +66,10 @@ gulp.task('watch', () => {
 （ taskListへ記述することで、default起動するようになります。 ）
 
 ```
-const taskList = [
-
-    'ejs'
-
-]
+gulp.task(
+    "default",
+    gulp.series(gulp.parallel(
+        'ejs"
+    ))
+);
 ```
